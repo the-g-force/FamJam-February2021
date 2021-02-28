@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/images/AlienPeter.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/thepinkster.png" type="Texture" id=1]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -32,5 +32,5 @@ animations = [ {
 
 [node name="AnimatedSprite" type="AnimatedSprite"]
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
