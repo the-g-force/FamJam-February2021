@@ -11,7 +11,7 @@ const _ALIENS := [
 var _levels := [
 	{"background":load("res://assets/images/mars/mars.png"), "target":load("res://assets/images/mars/rover.png"), "target name":"rover"},
 	{"background":load("res://assets/images/museum/museum.png"), "target":load("res://assets/images/museum/vangoghmuseum-s0031V1962-800.png"), "target name":"painting"},
-	{"background":load("res://assets/images/museum/museum.png"), "target":load("res://assets/images/school/dictionary.png"), "target name":"dictionary"},
+	{"background":load("res://assets/images/school/school.png"), "target":load("res://assets/images/school/dictionary.png"), "target name":"dictionary"},
 ]
 
 const _FancyWord := preload("res://src/FancyWord.tscn")

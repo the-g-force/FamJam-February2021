@@ -20,7 +20,7 @@ func _init():
 			_word_map[length] = []
 			
 		# Do not allow adding duplicates
-		if _word_map[line.length()].contains(line):
+		if _word_map[line.length()].has(line):
 			print('Duplicate entry: %s' % line)
 		else:
 			_word_map[line.length()].append(line)
