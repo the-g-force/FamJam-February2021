@@ -22,9 +22,21 @@ var _levels := [
 		"music": preload("res://assets/music/daniel_theme.ogg")
 	},
 	{
+		"background": preload("res://assets/images/museum/museum.png"),
+		"target": preload("res://assets/images/museum/ApolloNASM-NASM2016-01617.png"),
+		"target name":"Apollo capsule",
+		"music": preload("res://assets/music/daniel_theme.ogg")
+	},
+	{
 		"background": preload("res://assets/images/school/school.png"),
 		"target": preload("res://assets/images/school/dictionary.png"), 
 		"target name":"dictionary",
+		"music": preload("res://assets/music/SecondLevel.ogg")
+	},
+	{
+		"background": preload("res://assets/images/school/school.png"),
+		"target": preload("res://assets/images/school/apple.png"), 
+		"target name":"apple",
 		"music": preload("res://assets/music/SecondLevel.ogg")
 	},
 ]
@@ -84,6 +96,7 @@ func _process(delta):
 
 
 func game_over()->void:
+	$AnimationPlayer.stop()
 	_state = State.GAME_OVER
 	_music.stream = _defeat_stream
 	_music.play()
