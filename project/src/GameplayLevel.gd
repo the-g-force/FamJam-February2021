@@ -10,7 +10,8 @@ const _FancyWord := preload("res://src/FancyWord.tscn")
 var _word_bank = preload("res://src/WordBank.gd").new()
 var _game_over := false
 
-onready var _word := $FancyWord
+onready var _word := $WordBox/FancyWord
+onready var _word_box := $WordBox
 onready var _animation_player := $AnimationPlayer
 onready var _alien_slot := $AlienSlot
 onready var _game_over_control := $GameOver
@@ -24,7 +25,7 @@ func _ready():
 func _generate_word()->void:
 	_word = _FancyWord.instance()
 	_word.word = _word_bank.get_random_word(3)
-	add_child(_word)
+	_word_box.add_child(_word)
 
 
 func _input(event):
@@ -37,7 +38,7 @@ func _input(event):
 				if complete:
 					_remove_alien_sprite()
 					_new_alien()
-					remove_child(_word)
+					_word_box.remove_child(_word)
 					_generate_word()
 			false:
 				print("You failed, man!")
