@@ -25,6 +25,7 @@ func attempt(letter:String) -> bool:
 	letter = letter.to_upper()
 	if letter == word[_next_letter]:
 		get_child(_next_letter).play_success_animation()
+		get_child(_next_letter).modulate = Color.white
 		_next_letter += 1
 		if not is_complete():
 			get_child(_next_letter).play_next_letter_animation()
