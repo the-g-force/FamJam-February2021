@@ -1,7 +1,7 @@
-extends Node2D
+extends Control
 
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			get_tree().change_scene("res://src/MainMenu.tscn")
+			var _ignored := get_tree().change_scene("res://src/MainMenu.tscn")
