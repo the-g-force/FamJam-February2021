@@ -12,6 +12,7 @@ var _game_over := false
 onready var _word := $FancyWord
 onready var _animation_player := $AnimationPlayer
 onready var _alien_slot := $AlienSlot
+onready var _game_over_control := $GameOver
 
 
 func _ready():
@@ -55,3 +56,4 @@ func _new_alien()->void:
 func _on_AnimationPlayer_animation_finished(anim_name:String):
 	if anim_name == "AlienAttack":
 		_game_over = true
+		_game_over_control.visible = true
