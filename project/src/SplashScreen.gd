@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	randomize()
+
 
 func _input(event):
 	if event is InputEventMouseButton:
