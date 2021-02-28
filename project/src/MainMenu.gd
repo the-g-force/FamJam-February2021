@@ -32,4 +32,3 @@ func _on_MuteToggle_toggled(button_pressed:bool):
 
 func _on_OptionButton_item_selected(index):
 	Globals.max_duration = DIFFICULTY_DURATIONS[index]
-	print(str(Globals.max_duration))
