@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/FancyLetter.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/DMMono-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=1]
-resource_name = "Awful"
-length = 2.0
-loop = true
+resource_name = "next_letter"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:custom_fonts/font:size")
 tracks/0/interp = 1
@@ -13,17 +17,19 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2.2974, 2.2974 ),
 "update": 0,
-"values": [ 16, 32 ]
+"values": [ 32, 52 ]
 }
 
 [node name="FancyLetter" type="Label"]
+custom_fonts/font = SubResource( 2 )
+text = "x"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Awful = SubResource( 1 )
+anims/next_letter = SubResource( 1 )
