@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/WrongLetter.wav-a83b68af75e6fb1d1ed9d6cffdebe47b.sample"
+path="res://.import/PressKey.wav-7b2bfd2a1fb24ec0aa57ceef51a277fa.sample"
 
 [deps]
 
-source_file="res://assets/music/WrongLetter.wav"
-dest_files=[ "res://.import/WrongLetter.wav-a83b68af75e6fb1d1ed9d6cffdebe47b.sample" ]
+source_file="res://assets/sfx/PressKey.wav"
+dest_files=[ "res://.import/PressKey.wav-7b2bfd2a1fb24ec0aa57ceef51a277fa.sample" ]
 
 [params]
 
