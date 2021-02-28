@@ -16,6 +16,7 @@ var _levels := [
 
 const _FancyWord := preload("res://src/FancyWord.tscn")
 const _Explosion := preload("res://src/Explosion.tscn")
+const _defeat_stream := preload("res://assets/music/defeat.ogg")
 
 enum State {
 	COUNTING_DOWN,
@@ -43,11 +44,13 @@ onready var _game_over_control := $GameOver
 onready var _target := $Target
 onready var _countdown_timer := $CountdownTimer
 onready var _hud := $HUD
+onready var _music := $Music
+onready var _background := $Background
 
 
 func _ready():
 	var current_level:Dictionary = _levels[randi()%_levels.size()]
-	$Background.texture = current_level["background"]
+	_background.texture = current_level["background"]
 	_target.texture = current_level["target"]
 	_game_over_control.target = current_level["target name"]
 	_max_level = _word_bank.get_max_length()
@@ -64,6 +67,8 @@ func _process(delta):
 
 func game_over()->void:
 	_state = State.GAME_OVER
+	_music.stream = _defeat_stream
+	_music.play()
 	var _explosion := _Explosion.instance()
 	_explosion.position = _target.get_global_transform().origin
 	add_child(_explosion)
