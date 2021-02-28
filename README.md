@@ -1,4 +1,4 @@
-# FamJam Feb 2021
+# Rescue Writer
 
 February 2021 FamJam game by the G-Force
 

@@ -15,7 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="February 2021 FamJam"
+config/name="Rescue Writer"
+config/description="February 2021 Fam Jam from the G-Force"
 run/main_scene="res://src/SplashScreen.tscn"
 config/icon="res://icon.png"
 
