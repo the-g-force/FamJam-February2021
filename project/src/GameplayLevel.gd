@@ -121,17 +121,17 @@ func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		var the_char := char(event.unicode)
 		var success : bool = _word.attempt(the_char)
-		match success:
-			true:
-				var complete:bool = _word.is_complete()
-				if complete:
-					_hud.score += base_points_per_wave + (1 - _percent_alien_progress) * max_duration
-					_hud.wave += 1
-					_remove_alien_sprite()
-					_check_level()
-					_create_new_alien()
-					_word_box.remove_child(_word)
-					_generate_word()
+		if success:
+			var complete:bool = _word.is_complete()
+			if complete:
+				$FinishWordSound.play()
+				_hud.score += base_points_per_wave + (1 - _percent_alien_progress) * max_duration
+				_hud.wave += 1
+				_remove_alien_sprite()
+				_check_level()
+				_create_new_alien()
+				_word_box.remove_child(_word)
+				_generate_word()
 
 
 func _check_level():
