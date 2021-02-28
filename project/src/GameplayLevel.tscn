@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/FancyWord.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/GameplayLevel.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/mars/mars.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/mars/rover.png" type="Texture" id=4]
 [ext_resource path="res://src/GameOverScene.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/music/playing.ogg" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AlienAttack"
@@ -51,4 +52,8 @@ anims/AlienAttack = SubResource( 1 )
 
 [node name="GameOver" parent="." instance=ExtResource( 5 )]
 visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
