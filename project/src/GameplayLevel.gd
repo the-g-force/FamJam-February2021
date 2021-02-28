@@ -17,6 +17,9 @@ enum State {
 var _word_bank = preload("res://src/WordBank.gd").new()
 var _state = State.COUNTING_DOWN
 var _time_elapsed := 0.0
+var _level := 3
+var _aliens_defeated := 0 
+var _max_level:int
 
 export var _total_time := 8.0
 
@@ -28,6 +31,10 @@ onready var _end_pos:Vector2 = $EndPos.get_global_transform().origin
 onready var _game_over_control := $GameOver
 onready var _target := $Rover
 onready var _countdown_timer := $CountdownTimer
+
+
+func _ready():
+	_max_level = _word_bank.get_max_length()
 
 
 func _process(delta):
@@ -50,7 +57,7 @@ func game_over()->void:
 
 func _generate_word()->void:
 	_word = _FancyWord.instance()
-	_word.word = _word_bank.get_random_word(3)
+	_word.word = _word_bank.get_random_word(_level)
 	_word_box.add_child(_word)
 
 
@@ -66,9 +73,17 @@ func _input(event):
 				var complete:bool = _word.is_complete()
 				if complete:
 					_remove_alien_sprite()
+					_check_level()
 					_create_new_alien()
 					_word_box.remove_child(_word)
 					_generate_word()
+
+
+func _check_level():
+	_aliens_defeated += 1
+	if _aliens_defeated == 3 and _level < _max_level:
+		_level += 1
+		_aliens_defeated = 0
 
 
 func _remove_alien_sprite()->void:

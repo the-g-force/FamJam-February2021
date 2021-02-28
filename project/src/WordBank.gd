@@ -22,6 +22,14 @@ func _init():
 	print("Word bank initialized with %d words." % count)
 
 
+func get_max_length()->int:
+	var max_length := 0
+	for length in _word_map:
+		if length > max_length:
+			max_length = length
+	return max_length
+
+
 func get_random_word(length:int)->String:
 	var words = _word_map[length]
 	if words==null:
