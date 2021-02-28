@@ -15,9 +15,16 @@ func _init():
 		if length==0:
 			continue
 		
+		# Make sure there is an array there
 		if not _word_map.has(length):
 			_word_map[length] = []
-		_word_map[line.length()].append(line)
+			
+		# Do not allow adding duplicates
+		if _word_map[line.length()].contains(line):
+			print('Duplicate entry: %s' % line)
+		else:
+			_word_map[line.length()].append(line)
+			
 		count += 1
 			
 	print("Word bank initialized with %d words." % count)
