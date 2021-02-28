@@ -55,4 +55,3 @@ func _new_alien()->void:
 func _on_AnimationPlayer_animation_finished(anim_name:String):
 	if anim_name == "AlienAttack":
 		_game_over = true
-		$GameOver.show()
