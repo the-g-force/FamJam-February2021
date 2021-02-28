@@ -10,8 +10,8 @@ func _ready():
 	var font = DynamicFont.new()
 	font.font_data = _FONT_DATA
 	font.size = 32
-	font.outline_size = 1
-	font.outline_color = Color.black
+	font.outline_size = 2
+	font.outline_color = Color.orange
 	add_font_override("font", font)
 
 

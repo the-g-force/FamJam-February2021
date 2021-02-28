@@ -3,12 +3,11 @@
 [ext_resource path="res://src/FancyLetter.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/DMMono-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "next_letter"
+[sub_resource type="Animation" id=2]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:custom_fonts/font:size")
@@ -24,7 +23,8 @@ tracks/0/keys = {
 }
 
 [node name="FancyLetter" type="Label"]
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
 text = "x"
 script = ExtResource( 1 )
 __meta__ = {
@@ -32,4 +32,4 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/next_letter = SubResource( 1 )
+anims/next_letter = SubResource( 2 )
