@@ -7,6 +7,9 @@ func update_text():
 	$Label.text = "Oh no! The aliens got your "+target+"!"
 
 
-func _input(event):
-	if event is InputEventKey and event.pressed and event.scancode == KEY_ENTER:
-		var _ignored := get_tree().change_scene("res://src/GameplayLevel.tscn")
+func _on_PlayAgainButton_pressed():
+	var _ignored := get_tree().change_scene("res://src/GameplayLevel.tscn")
+
+
+func _on_MainMenuButton_pressed():
+	var _ignored := get_tree().change_scene("res://src/MainMenu.tscn")

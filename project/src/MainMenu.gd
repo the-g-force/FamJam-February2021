@@ -11,6 +11,9 @@ onready var _option_button := $DifficultyBox/OptionButton
 
 
 func _ready():
+	# Reset the default difficulty level.
+	Globals.max_duration = DIFFICULTY_DURATIONS[1]
+	
 	_option_button.theme = Theme.new()
 	_option_button.theme.default_font = preload("res://src/main_menu_text.tres")
 
