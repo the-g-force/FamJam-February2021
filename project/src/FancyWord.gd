@@ -15,14 +15,14 @@ func _generate_word():
 	word = word.to_upper()
 	var lastpos := 0
 	for letter in word:
-		var Fancy_Letter := _fancy_letter.instance()
-		Fancy_Letter.name = letter
-		Fancy_Letter.text = letter
+		var fancy_letter := _fancy_letter.instance()
+		fancy_letter.name = letter
+		fancy_letter.text = letter
 		var wordlength := word.length()
 		var wordpos := word.find(letter, lastpos)
 		lastpos += 1
 		var word_pos_from_middle := wordpos-wordlength/2
 		var letter_pos:Vector2 = $Letters.get_global_transform().origin
 		letter_pos.x += letter_distance*word_pos_from_middle
-		Fancy_Letter.position = letter_pos
-		$Letters.add_child(Fancy_Letter)
+		fancy_letter.position = letter_pos
+		$Letters.add_child(fancy_letter)
