@@ -4,28 +4,40 @@
 [ext_resource path="res://assets/fonts/DMMono-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
+size = 24
 font_data = ExtResource( 2 )
 
-[node name="HUD" type="HBoxContainer"]
+[node name="HUD" type="ColorRect"]
 anchor_right = 1.0
-margin_bottom = 31.0
-custom_constants/separation = 32
+margin_bottom = 36.0
+color = Color( 1, 1, 1, 0.0941176 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="WaveLabel" type="Label" parent="."]
+margin_left = 382.405
+margin_right = 452.405
+margin_bottom = 21.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.968627, 0.478431, 0.0470588, 1 )
+custom_constants/shadow_offset_x = 2
+text = "Wave: 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScoreLabel" type="Label" parent="."]
-margin_top = 5.0
-margin_right = 80.0
-margin_bottom = 26.0
+margin_left = 554.055
+margin_right = 634.055
+margin_bottom = 21.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.968627, 0.478431, 0.0470588, 1 )
+custom_constants/shadow_offset_x = 2
 text = "Score: 0"
-
-[node name="WaveLabel" type="Label" parent="."]
-margin_left = 112.0
-margin_top = 5.0
-margin_right = 182.0
-margin_bottom = 26.0
-custom_fonts/font = SubResource( 1 )
-text = "Wave: 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -17,14 +17,15 @@ enum State {
 	GAME_OVER
 }
 
+export var max_duration := 8.0
+export var base_points_per_wave = 5
+
 var _word_bank = preload("res://src/WordBank.gd").new()
 var _state = State.COUNTING_DOWN
 var _percent_alien_progress := 0.0
 var _level := 3
 var _aliens_defeated := 0 
 var _max_level:int
-
-export var _total_time := 8.0
 
 onready var _word := $WordBox/FancyWord
 onready var _word_box := $WordBox
@@ -43,7 +44,7 @@ func _ready():
 
 func _process(delta):
 	if _state == State.PLAYING:
-		_percent_alien_progress += delta/_total_time
+		_percent_alien_progress += delta/max_duration
 		var pos = lerp(_start_pos, _end_pos, _percent_alien_progress)
 		_alien_slot.position = pos
 		if _percent_alien_progress >= 1:
@@ -76,14 +77,13 @@ func _input(event):
 			true:
 				var complete:bool = _word.is_complete()
 				if complete:
-					_hud.score += (1 - _percent_alien_progress) * _total_time
+					_hud.score += base_points_per_wave + (1 - _percent_alien_progress) * max_duration
 					_hud.wave += 1
 					_remove_alien_sprite()
 					_check_level()
 					_create_new_alien()
 					_word_box.remove_child(_word)
 					_generate_word()
-					
 
 
 func _check_level():
