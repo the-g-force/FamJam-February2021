@@ -17,7 +17,7 @@ enum State {
 	GAME_OVER
 }
 
-export var max_duration := 8.0
+export var max_duration := Globals.max_duration
 export var base_points_per_wave = 5
 export var _aliens_defeated_to_advance := 3
 

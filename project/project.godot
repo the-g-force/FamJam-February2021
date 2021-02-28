@@ -19,6 +19,10 @@ config/name="February 2021 FamJam"
 run/main_scene="res://src/SplashScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://src/Globals.gd"
+
 [display]
 
 window/stretch/mode="2d"
