@@ -1,9 +1,9 @@
 extends Control
 
-var target := "rover"
+var target := ""
 
 
-func _ready():
+func update_text():
 	$Label.text = "Oh no! The aliens got your "+target+"!"
 
 

@@ -30,7 +30,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Rover" type="Sprite" parent="."]
+[node name="Target" type="Sprite" parent="."]
 position = Vector2( 883.627, 518.008 )
 texture = ExtResource( 4 )
 

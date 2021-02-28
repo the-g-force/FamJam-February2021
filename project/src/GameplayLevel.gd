@@ -8,6 +8,12 @@ const _ALIENS := [
 	preload("res://src/Aliens/Alien5.tscn"),
 ]
 
+var _levels := [
+	{"background":load("res://assets/images/mars/mars.png"), "target":load("res://assets/images/mars/rover.png"), "target name":"rover"},
+	{"background":load("res://assets/images/museum/museum.png"), "target":load("res://assets/images/museum/vangoghmuseum-s0031V1962-800.png"), "target name":"painting"},
+	{"background":load("res://assets/images/museum/museum.png"), "target":load("res://assets/images/school/dictionary.png"), "target name":"dictionary"},
+]
+
 const _FancyWord := preload("res://src/FancyWord.tscn")
 const _Explosion := preload("res://src/Explosion.tscn")
 
@@ -34,12 +40,16 @@ onready var _alien_slot := $AlienSlot
 onready var _start_pos:Vector2 = $StartPos.get_global_transform().origin
 onready var _end_pos:Vector2 = $EndPos.get_global_transform().origin
 onready var _game_over_control := $GameOver
-onready var _target := $Rover
+onready var _target := $Target
 onready var _countdown_timer := $CountdownTimer
 onready var _hud := $HUD
 
 
 func _ready():
+	var current_level:Dictionary = _levels[randi()%_levels.size()]
+	$Background.texture = current_level["background"]
+	_target.texture = current_level["target"]
+	_game_over_control.target = current_level["target name"]
 	_max_level = _word_bank.get_max_length()
 
 
@@ -58,6 +68,7 @@ func game_over()->void:
 	_explosion.position = _target.get_global_transform().origin
 	add_child(_explosion)
 	_target.queue_free()
+	_game_over_control.update_text()
 	_game_over_control.visible = true
 
 
