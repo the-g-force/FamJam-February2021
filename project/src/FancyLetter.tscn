@@ -9,7 +9,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "next_letter"
-length = 0.5
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:custom_fonts/font:size")
 tracks/0/interp = 1
@@ -17,7 +17,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 2.2974, 2.2974 ),
 "update": 0,
 "values": [ 32, 52 ]
