@@ -17,3 +17,11 @@ func _generate_word():
 		fancy_letter.name = letter
 		fancy_letter.text = letter
 		add_child(fancy_letter)
+
+
+func attempt(letter) -> bool:
+	return false
+
+
+func is_complete() -> bool:
+	return false
