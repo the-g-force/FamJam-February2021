@@ -2,12 +2,13 @@ extends HBoxContainer
 
 const _Fancy_Letter := preload("res://src/FancyLetter.tscn")
 
-var word:String = "DOggo"
+var word:String setget _set_word
 
 var _next_letter := 0
 
-func _ready():
-	word = word.to_upper()
+
+func _set_word(value):
+	word = value.to_upper()
 	_generate_word()
 
 
