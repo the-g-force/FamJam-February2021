@@ -43,18 +43,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true, false ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("PressEnterLabel:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -102,21 +90,6 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-
-[node name="PressEnterLabel" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -199.5
-margin_top = -144.772
-margin_right = 199.5
-margin_bottom = -102.772
-custom_fonts/font = SubResource( 2 )
-text = "Press Enter to Begin!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DifficultyBox" type="HBoxContainer" parent="."]
 margin_left = 14.1915
@@ -169,6 +142,15 @@ text = "Mute Music"
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 480.992
+margin_top = 462.493
+margin_right = 568.992
+margin_bottom = 510.493
+custom_fonts/font = SubResource( 2 )
+text = "Play"
 [connection signal="item_selected" from="DifficultyBox/OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="toggled" from="FullscreenToggle" to="." method="_on_FullscreenToggle_toggled"]
 [connection signal="toggled" from="MuteToggle" to="." method="_on_MuteToggle_toggled"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]

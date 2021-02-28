@@ -15,12 +15,6 @@ func _ready():
 	_option_button.theme.default_font = preload("res://src/main_menu_text.tres")
 
 
-func _input(event):
-	if event is InputEventKey and event.pressed and event.scancode == KEY_ENTER:
-		var _ignored := get_tree().change_scene("res://src/GameplayLevel.tscn")
-
-
-
 func _on_FullscreenToggle_toggled(button_pressed:bool):
 	OS.window_fullscreen = button_pressed
 
@@ -32,3 +26,7 @@ func _on_MuteToggle_toggled(button_pressed:bool):
 
 func _on_OptionButton_item_selected(index):
 	Globals.max_duration = DIFFICULTY_DURATIONS[index]
+
+
+func _on_PlayButton_pressed():
+	var _ignored := get_tree().change_scene("res://src/GameplayLevel.tscn")
