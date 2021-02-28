@@ -2,8 +2,10 @@
 
 [ext_resource path="res://src/TestScene.gd" type="Script" id=1]
 [ext_resource path="res://src/Alien1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/mars.png" type="Texture" id=3]
-[ext_resource path="res://assets/rover.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/mars/mars.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/mars/rover.png" type="Texture" id=4]
+
+
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )

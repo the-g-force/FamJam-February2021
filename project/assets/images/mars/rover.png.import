@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rover.png-6f73e76ff2a148365dd540211c1758c9.stex"
+path="res://.import/rover.png-57a4c542e4dd312a70c4532c2e0cef5a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rover.png"
-dest_files=[ "res://.import/rover.png-6f73e76ff2a148365dd540211c1758c9.stex" ]
+source_file="res://assets/images/mars/rover.png"
+dest_files=[ "res://.import/rover.png-57a4c542e4dd312a70c4532c2e0cef5a.stex" ]
 
 [params]
 

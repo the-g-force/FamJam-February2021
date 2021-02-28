@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alien1.png-435911b8f23ad54183916dba55273d00.stex"
+path="res://.import/alien1.png-3ec2f7c1421ee9da366dd4c33c765994.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/alien1.png"
-dest_files=[ "res://.import/alien1.png-435911b8f23ad54183916dba55273d00.stex" ]
+source_file="res://assets/images/mars/alien1.png"
+dest_files=[ "res://.import/alien1.png-3ec2f7c1421ee9da366dd4c33c765994.stex" ]
 
 [params]
 
