@@ -8,27 +8,6 @@ const _ALIENS := [
 	preload("res://src/Aliens/Alien5.tscn"),
 ]
 
-var _levels := [
-	{
-		"background": preload("res://assets/images/mars/mars.png"),
-		"target": preload("res://assets/images/mars/rover.png"), 
-		"target name":"rover",
-		"music": preload("res://assets/music/playing.ogg")
-	},
-	{
-		"background": preload("res://assets/images/museum/museum.png"),
-		"target": preload("res://assets/images/museum/vangoghmuseum-s0031V1962-800.png"),
-		"target name":"painting",
-		"music": preload("res://assets/music/daniel_theme.ogg")
-	},
-	{
-		"background": preload("res://assets/images/school/school.png"),
-		"target": preload("res://assets/images/school/dictionary.png"), 
-		"target name":"dictionary",
-		"music": preload("res://assets/music/SecondLevel.ogg")
-	},
-]
-
 const _FancyWord := preload("res://src/FancyWord.tscn")
 const _Explosion := preload("res://src/Explosion.tscn")
 const _defeat_stream := preload("res://assets/music/defeat.ogg")
@@ -64,13 +43,12 @@ onready var _background := $Background
 
 
 func _ready():
-	var current_level:Dictionary = _levels[randi()%_levels.size()]
-	_background.texture = current_level["background"]
-	_target.texture = current_level["target"]
-	_game_over_control.target = current_level["target name"]
+	_background.texture = Globals.level["background"]
+	_target.texture = Globals.level["target"]
+	_game_over_control.target = Globals.level["target name"]
 	_max_level = _word_bank.get_max_length()
 	
-	_music.stream = current_level["music"]
+	_music.stream = Globals.level["music"]
 	_music.play()
 
 
