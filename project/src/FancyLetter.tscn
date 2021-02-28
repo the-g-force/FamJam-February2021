@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/DMMono-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
@@ -35,7 +35,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 2.2974, 2.2974 ),
 "update": 0,
-"values": [ 32, 52 ]
+"values": [ 64, 92 ]
 }
 
 [node name="FancyLetter" type="Label"]

@@ -9,7 +9,7 @@ func _ready():
 	# animated (e.g. change the size of one and not the others)
 	var font = DynamicFont.new()
 	font.font_data = _FONT_DATA
-	font.size = 32
+	font.size = 64
 	font.outline_size = 2
 	font.outline_color = Color.orange
 	add_font_override("font", font)
