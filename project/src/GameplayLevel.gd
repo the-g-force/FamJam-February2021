@@ -1,11 +1,13 @@
 extends Control
 
-onready var _word := $FancyWord
-
-var _aliens := [
+const _ALIENS := [
 	preload("res://src/Alien1.tscn")
 ]
 
+
+onready var _word := $FancyWord
+onready var _animation_player := $AnimationPlayer
+onready var _alien_slot := $AlienSlot
 
 func _ready():
 	_new_alien()
@@ -13,27 +15,31 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
-		var key_event := event as InputEventKey
 		var the_char := char(event.unicode)
 		var success : bool = _word.attempt(the_char)
 		match success:
 			true:
 				var complete:bool = _word.is_complete()
 				if complete:
-					$Alien.get_child(0).queue_free()
-					print("Alien Defeated")
+					_remove_alien_sprite()
 					_new_alien()
-				else:
-					print("Yay, you can type!")
+					remove_child(_word)
+					_word = preload("res://src/FancyWord.tscn").instance()
+					_word.word = "two"
+					add_child(_word)
 			false:
 				print("You failed, man!")
 
 
-func _new_alien():
-	$AnimationPlayer.stop(true)
-	var alien:AnimatedSprite = _aliens[randi()%_aliens.size()].instance()
-	$Alien.add_child(alien)
-	$AnimationPlayer.play("AlienAttack")
+func _remove_alien_sprite()->void:
+	_alien_slot.get_child(0).queue_free()
+
+
+func _new_alien()->void:
+	_animation_player.stop(true)
+	var alien:AnimatedSprite = _ALIENS[randi()%_ALIENS.size()].instance()
+	_alien_slot.add_child(alien)
+	_animation_player.play("AlienAttack")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name:String):

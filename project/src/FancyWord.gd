@@ -12,7 +12,6 @@ func _ready():
 
 
 func _generate_word():
-	var lastpos := 0
 	for letter in word:
 		var fancy_letter := _Fancy_Letter.instance()
 		fancy_letter.name = letter
