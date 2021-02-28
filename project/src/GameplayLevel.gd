@@ -69,8 +69,6 @@ func _input(event):
 					_create_new_alien()
 					_word_box.remove_child(_word)
 					_generate_word()
-			false:
-				print("You failed, man!")
 
 
 func _remove_alien_sprite()->void:

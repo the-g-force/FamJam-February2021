@@ -21,3 +21,7 @@ func play_next_letter_animation()->void:
 
 func play_success_animation()->void:
 	_animation_player.play_backwards("next_letter")
+	
+
+func play_mistake_animation() -> void:
+	_animation_player.play("mistake")

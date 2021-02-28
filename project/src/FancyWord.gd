@@ -30,6 +30,7 @@ func attempt(letter:String) -> bool:
 			get_child(_next_letter).play_next_letter_animation()
 		return true
 	else:
+		get_child(_next_letter).play_mistake_animation()
 		return false
 
 
