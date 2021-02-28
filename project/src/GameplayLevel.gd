@@ -17,10 +17,10 @@ enum State {
 	GAME_OVER
 }
 
-export var max_duration := Globals.max_duration
 export var base_points_per_wave = 5
 export var _aliens_defeated_to_advance := 3
 
+var max_duration := Globals.max_duration
 var _word_bank = preload("res://src/WordBank.gd").new()
 var _state = State.COUNTING_DOWN
 var _percent_alien_progress := 0.0
