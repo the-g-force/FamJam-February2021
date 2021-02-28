@@ -6,6 +6,7 @@ const _ALIENS := [
 ]
 
 const _FancyWord := preload("res://src/FancyWord.tscn")
+const _Explosion := preload("res://src/Explosion.tscn")
 
 var _word_bank = preload("res://src/WordBank.gd").new()
 var _game_over := false
@@ -15,6 +16,7 @@ onready var _word_box := $WordBox
 onready var _animation_player := $AnimationPlayer
 onready var _alien_slot := $AlienSlot
 onready var _game_over_control := $GameOver
+onready var _target := $Rover
 
 
 func _ready():
@@ -58,4 +60,8 @@ func _new_alien()->void:
 func _on_AnimationPlayer_animation_finished(anim_name:String):
 	if anim_name == "AlienAttack":
 		_game_over = true
+		var _explosion := _Explosion.instance()
+		_explosion.position = _target.get_global_transform().origin
+		add_child(_explosion)
+		_target.queue_free()
 		_game_over_control.visible = true
