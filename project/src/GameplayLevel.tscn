@@ -39,7 +39,7 @@ __meta__ = {
 }
 
 [node name="Rover" type="Sprite" parent="."]
-position = Vector2( 888.117, 555.049 )
+position = Vector2( 883.627, 518.008 )
 texture = ExtResource( 4 )
 
 [node name="AlienSlot" type="Node2D" parent="."]
