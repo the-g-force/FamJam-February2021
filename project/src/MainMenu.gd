@@ -7,10 +7,20 @@ const DIFFICULTY_DURATIONS = {
 	3: 2
 }
 
+var _levels := [
+	{"background":load("res://assets/images/mars/mars.png"), "target":load("res://assets/images/mars/rover.png"), "target name":"rover"},
+	{"background":load("res://assets/images/museum/museum.png"), "target":load("res://assets/images/museum/vangoghmuseum-s0031V1962-800.png"), "target name":"painting"},
+	{"background":load("res://assets/images/school/school.png"), "target":load("res://assets/images/school/dictionary.png"), "target name":"dictionary"},
+	{"background":load("res://assets/images/school/school.png"), "target":load("res://assets/images/school/apple.png"), "target name":"apple"},
+]
+
 onready var _option_button := $DifficultyBox/OptionButton
 
 
 func _ready():
+	var _level:Dictionary = _levels[randi()%_levels.size()]
+	$Sprite.texture = _level["background"]
+	Globals.level = _level
 	_option_button.theme = Theme.new()
 	_option_button.theme.default_font = preload("res://src/main_menu_text.tres")
 

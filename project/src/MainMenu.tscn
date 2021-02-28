@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/title-text.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/music/TypingSegement.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/fonts/DMMono-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/main_menu_text.tres" type="DynamicFont" id=5]
+[ext_resource path="res://src/ButtonHovered.tres" type="StyleBox" id=6]
+[ext_resource path="res://src/ButtonPressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://src/ButtonNormal.tres" type="StyleBox" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "title"
@@ -44,7 +47,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -55,6 +58,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "title"
@@ -102,16 +108,19 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="DifficultyBox"]
-margin_top = 4.0
+margin_top = 8.0
 margin_right = 140.0
-margin_bottom = 36.0
+margin_bottom = 40.0
 custom_fonts/font = ExtResource( 5 )
 text = "Difficulty"
 
 [node name="OptionButton" type="OptionButton" parent="DifficultyBox"]
 margin_left = 144.0
-margin_right = 341.0
-margin_bottom = 40.0
+margin_right = 342.0
+margin_bottom = 48.0
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/normal = ExtResource( 8 )
 custom_fonts/font = ExtResource( 5 )
 text = "Regular Dude"
 items = [ "Easy Peasy", null, false, 0, null, "Regular Dude", null, false, 1, null, "Angry Aliens", null, false, 2, null, "Super Duper", null, false, 3, null ]
@@ -125,6 +134,10 @@ margin_left = 550.95
 margin_top = 541.5
 margin_right = 770.95
 margin_bottom = 581.5
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/hover_pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 custom_fonts/font = ExtResource( 5 )
 text = "Fullscreen"
 __meta__ = {
@@ -137,6 +150,10 @@ margin_left = 795.539
 margin_top = 541.5
 margin_right = 1015.54
 margin_bottom = 581.5
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/hover_pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
 custom_fonts/font = ExtResource( 5 )
 text = "Mute Music"
 __meta__ = {
@@ -148,8 +165,14 @@ margin_left = 480.992
 margin_top = 462.493
 margin_right = 568.992
 margin_bottom = 510.493
-custom_fonts/font = SubResource( 2 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/normal = ExtResource( 8 )
+custom_fonts/font = SubResource( 5 )
 text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="item_selected" from="DifficultyBox/OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="toggled" from="FullscreenToggle" to="." method="_on_FullscreenToggle_toggled"]
 [connection signal="toggled" from="MuteToggle" to="." method="_on_MuteToggle_toggled"]
