@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/title-text.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/music/TypingSegement.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/fonts/DMMono-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "title"
@@ -41,25 +42,27 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("PressEnterLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -19.0
-margin_top = -99.0
-margin_right = 19.0
-margin_bottom = -79.0
-text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,4 +101,19 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[node name="PressEnterLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -199.5
+margin_top = -122.909
+margin_right = 199.5
+margin_bottom = -80.9086
+custom_fonts/font = SubResource( 2 )
+text = "Press Enter to Begin!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
