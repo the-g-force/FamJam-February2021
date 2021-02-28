@@ -7,6 +7,7 @@ const _ALIENS := [
 const _FancyWord := preload("res://src/FancyWord.tscn")
 
 var _word_bank = preload("res://src/WordBank.gd").new()
+var _game_over := false
 
 onready var _word := $FancyWord
 onready var _animation_player := $AnimationPlayer
@@ -25,7 +26,7 @@ func _generate_word()->void:
 
 
 func _input(event):
-	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+	if event is InputEventKey and event.is_pressed() and not event.is_echo() and not _game_over:
 		var the_char := char(event.unicode)
 		var success : bool = _word.attempt(the_char)
 		match success:
@@ -53,4 +54,5 @@ func _new_alien()->void:
 
 func _on_AnimationPlayer_animation_finished(anim_name:String):
 	if anim_name == "AlienAttack":
-		print("You Lose!")
+		_game_over = true
+		$GameOver.show()
