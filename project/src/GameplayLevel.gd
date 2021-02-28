@@ -19,6 +19,7 @@ enum State {
 
 export var max_duration := 8.0
 export var base_points_per_wave = 5
+export var _aliens_defeated_to_advance := 3
 
 var _word_bank = preload("res://src/WordBank.gd").new()
 var _state = State.COUNTING_DOWN
@@ -88,7 +89,7 @@ func _input(event):
 
 func _check_level():
 	_aliens_defeated += 1
-	if _aliens_defeated == 3 and _level < _max_level:
+	if _aliens_defeated == _aliens_defeated_to_advance and _level < _max_level:
 		_level += 1
 		_aliens_defeated = 0
 
