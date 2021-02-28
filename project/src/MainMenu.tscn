@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/title-text.tres" type="DynamicFont" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/ButtonHovered.tres" type="StyleBox" id=6]
 [ext_resource path="res://src/ButtonPressed.tres" type="StyleBox" id=7]
 [ext_resource path="res://src/ButtonNormal.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/music/FebFamJamMainMenu.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -190,6 +191,11 @@ text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+bus = "Music"
 [connection signal="item_selected" from="DifficultyBox/OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="toggled" from="FullscreenToggle" to="." method="_on_FullscreenToggle_toggled"]
 [connection signal="toggled" from="MuteToggle" to="." method="_on_MuteToggle_toggled"]
