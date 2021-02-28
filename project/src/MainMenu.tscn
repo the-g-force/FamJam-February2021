@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/title-text.tres" type="DynamicFont" id=2]
@@ -9,8 +9,20 @@
 [ext_resource path="res://src/ButtonPressed.tres" type="StyleBox" id=7]
 [ext_resource path="res://src/ButtonNormal.tres" type="StyleBox" id=8]
 
-[sub_resource type="Animation" id=1]
-resource_name = "title"
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+const vec3 color1 = vec3(.8,.5,.5);
+const vec3 color2 = vec3(1,0.5,0);
+
+void fragment() {
+	COLOR = vec4(mix(color1, color2, UV.y), 1);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/Label:percent_visible")
@@ -47,7 +59,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -59,12 +71,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-centered = false
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "title"
-anims/title = SubResource( 1 )
+anims/title = SubResource( 3 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
@@ -168,7 +185,7 @@ margin_bottom = 510.493
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 7 )
 custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
