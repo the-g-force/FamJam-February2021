@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/CountdownTimer.gd" type="Script" id=1]
+[ext_resource path="res://src/title-text.tres" type="DynamicFont" id=2]
+
+[node name="CountdownTimer" type="Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -73.5
+margin_right = 360.0
+margin_bottom = 73.5
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.890196, 0.415686, 0.0666667, 1 )
+text = "Get Ready!
+3"
+align = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
