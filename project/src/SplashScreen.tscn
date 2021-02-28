@@ -11,10 +11,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 374.577
-margin_top = 308.651
-margin_right = 480.577
-margin_bottom = 322.651
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -53.0
+margin_top = -7.0
+margin_right = 53.0
+margin_bottom = 7.0
 text = "click to continue"
 __meta__ = {
 "_edit_use_anchors_": false
