@@ -16,7 +16,7 @@ enum State {
 
 var _word_bank = preload("res://src/WordBank.gd").new()
 var _state = State.COUNTING_DOWN
-var _time_elapsed := 0.0
+var _percent_alien_progress := 0.0
 var _level := 3
 var _aliens_defeated := 0 
 var _max_level:int
@@ -31,6 +31,7 @@ onready var _end_pos:Vector2 = $EndPos.get_global_transform().origin
 onready var _game_over_control := $GameOver
 onready var _target := $Rover
 onready var _countdown_timer := $CountdownTimer
+onready var _hud := $HUD
 
 
 func _ready():
@@ -39,10 +40,10 @@ func _ready():
 
 func _process(delta):
 	if _state == State.PLAYING:
-		_time_elapsed += delta/_total_time
-		var pos = lerp(_start_pos, _end_pos, _time_elapsed)
+		_percent_alien_progress += delta/_total_time
+		var pos = lerp(_start_pos, _end_pos, _percent_alien_progress)
 		_alien_slot.position = pos
-		if _time_elapsed >= 1:
+		if _percent_alien_progress >= 1:
 			game_over()
 
 
@@ -72,11 +73,14 @@ func _input(event):
 			true:
 				var complete:bool = _word.is_complete()
 				if complete:
+					_hud.score += (1 - _percent_alien_progress) * _total_time
+					_hud.wave += 1
 					_remove_alien_sprite()
 					_check_level()
 					_create_new_alien()
 					_word_box.remove_child(_word)
 					_generate_word()
+					
 
 
 func _check_level():
@@ -91,7 +95,7 @@ func _remove_alien_sprite()->void:
 
 
 func _create_new_alien()->void:
-	_time_elapsed = 0.0
+	_percent_alien_progress = 0.0
 	var alien:AnimatedSprite = _ALIENS[randi()%_ALIENS.size()].instance()
 	_alien_slot.add_child(alien)
 

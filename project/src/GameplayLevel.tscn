@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/FancyWord.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/GameplayLevel.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/GameOverScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/music/playing.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/CountdownTimer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/HUD.tscn" type="PackedScene" id=8]
 
 [node name="GameplayLevel" type="Control"]
 anchor_right = 1.0
@@ -33,6 +34,8 @@ __meta__ = {
 position = Vector2( 883.627, 518.008 )
 texture = ExtResource( 4 )
 
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+
 [node name="AlienSlot" type="Node2D" parent="."]
 position = Vector2( 870, 450 )
 
@@ -42,7 +45,6 @@ visible = false
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
-bus = "Music"
 
 [node name="CountdownTimer" parent="." instance=ExtResource( 7 )]
 margin_top = -174.902
