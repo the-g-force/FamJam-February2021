@@ -2,7 +2,15 @@
 
 [ext_resource path="res://src/FancyWord.gd" type="Script" id=1]
 
-[node name="FancyWord" type="Node2D"]
+[node name="FancyWord" type="HBoxContainer"]
+anchor_right = 1.0
+margin_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+custom_constants/separation = 10
+alignment = 1
 script = ExtResource( 1 )
-
-[node name="Letters" type="Node2D" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
