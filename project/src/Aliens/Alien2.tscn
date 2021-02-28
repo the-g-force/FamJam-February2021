@@ -3,22 +3,18 @@
 [ext_resource path="res://assets/images/AlienPeter.png" type="Texture" id=1]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 163, 150 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 163, 0, 163, 150 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 150, 163, 150 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 163, 150, 163, 150 )
 
@@ -32,5 +28,4 @@ animations = [ {
 
 [node name="AnimatedSprite" type="AnimatedSprite"]
 frames = SubResource( 5 )
-frame = 2
 playing = true

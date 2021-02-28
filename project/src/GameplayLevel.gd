@@ -3,6 +3,9 @@ extends Control
 const _ALIENS := [
 	preload("res://src/Aliens/Alien1.tscn"),
 	preload("res://src/Aliens/Alien2.tscn"),
+	preload("res://src/Aliens/Alien3.tscn"),
+	preload("res://src/Aliens/Alien4.tscn"),
+	preload("res://src/Aliens/Alien5.tscn"),
 ]
 
 const _FancyWord := preload("res://src/FancyWord.tscn")
