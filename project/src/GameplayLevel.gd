@@ -12,17 +12,20 @@ var _levels := [
 	{
 		"background": preload("res://assets/images/mars/mars.png"),
 		"target": preload("res://assets/images/mars/rover.png"), 
-		"target name":"rover"
+		"target name":"rover",
+		"music": preload("res://assets/music/playing.ogg")
 	},
 	{
 		"background": preload("res://assets/images/museum/museum.png"),
 		"target": preload("res://assets/images/museum/vangoghmuseum-s0031V1962-800.png"),
-		"target name":"painting"
+		"target name":"painting",
+		"music": preload("res://assets/music/daniel_theme.ogg")
 	},
 	{
 		"background": preload("res://assets/images/school/school.png"),
 		"target": preload("res://assets/images/school/dictionary.png"), 
-		"target name":"dictionary"
+		"target name":"dictionary",
+		"music": preload("res://assets/music/SecondLevel.ogg")
 	},
 ]
 
@@ -66,6 +69,9 @@ func _ready():
 	_target.texture = current_level["target"]
 	_game_over_control.target = current_level["target name"]
 	_max_level = _word_bank.get_max_length()
+	
+	_music.stream = current_level["music"]
+	_music.play()
 
 
 func _process(delta):
