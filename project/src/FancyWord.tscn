@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/FancyWord.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/WrongLetter.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sfx/CorrectLetter.wav" type="AudioStream" id=3]
 
 [node name="FancyWord" type="Control"]
 margin_left = 512.0
@@ -11,6 +12,11 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 4.0
+bus = "SFX"
 
 [node name="MistakeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Defeat.wav-cc700e616b7d20f444b92ce55e576a7a.sample"
+path="res://.import/CorrectLetter.wav-9c5b12994d1a05db67663f8452a5630f.sample"
 
 [deps]
 
-source_file="res://assets/music/Defeat.wav"
-dest_files=[ "res://.import/Defeat.wav-cc700e616b7d20f444b92ce55e576a7a.sample" ]
+source_file="res://assets/sfx/CorrectLetter.wav"
+dest_files=[ "res://.import/CorrectLetter.wav-9c5b12994d1a05db67663f8452a5630f.sample" ]
 
 [params]
 

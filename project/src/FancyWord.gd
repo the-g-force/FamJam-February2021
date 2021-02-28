@@ -31,6 +31,7 @@ func attempt(letter:String) -> bool:
 		_letter_box.get_child(_next_letter).play_success_animation()
 		_letter_box.get_child(_next_letter).modulate = Color.white
 		_next_letter += 1
+		$CorrectSound.play()
 		if not is_complete():
 			_letter_box.get_child(_next_letter).play_next_letter_animation()
 		return true
