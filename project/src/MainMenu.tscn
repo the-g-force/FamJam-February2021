@@ -1,15 +1,46 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/title-text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/music/TypingSegement.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "title"
-
-[sub_resource type="DynamicFont" id=2]
-size = 72
-outline_size = 3
-font_data = ExtResource( 2 )
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -21,13 +52,13 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 margin_left = -19.0
-margin_top = -10.0
+margin_top = -99.0
 margin_right = 19.0
-margin_bottom = 10.0
+margin_bottom = -79.0
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,15 +84,17 @@ margin_left = 276.0
 margin_top = 206.5
 margin_right = 708.0
 margin_bottom = 353.5
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0.854902, 0.298039, 0.105882, 1 )
 text = "Rescue
 Writer"
 align = 1
 valign = 1
-percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
